@@ -115,5 +115,8 @@
         }
       }
     }},
-  "defaultProject": "simple-login-app"
+  "defaultProject": "simple-login-app",
+  "cli": {
+    "analytics": false
+  }
 }
