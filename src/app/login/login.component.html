@@ -1,31 +1,41 @@
-<div class="col-sm-4">
-    <div id = "loginDiv">
-        <form (ngSubmit)="login()" >
-            <div class ="form-group">
-                <label for ="uname">Username</label>
-                <input type="text" id="uname" class = "form-control" name="uname" required [(ngModel)]="uname" 
-                #username="ngModel">
-                <span class ="errormsg" *ngIf="!username.valid && username.touched">Username required</span>
+<div class="container">
+    <div class="row">
+
+    <div class="col-sm-4">
+        <div id = "loginDiv">
+            <form (ngSubmit)="login()" #loginForm="ngForm">
+                <div class="box">
+                    <div class ="form-group">
+                        <label for ="uname" style="padding-right: 3%">Username:   </label>
+                        <input type="text" id="uname" class = "form-control" name="uname" required [(ngModel)]="uname" 
+                        #username="ngModel" placeholder="Please insert your username" style="height: 12%; width: 50%;" >
+                        <span class ="errormsg" *ngIf="!username.valid && username.touched">Username required!!</span>
+                    </div>
+                    <br>
+                    <div class = "form-group">
+                        <label for="password" style="padding-right: 3%;">Password:   </label>
+                        <input type="password" id="password" class="form-control" name = "password" required [(ngModel)]="password"
+                        #pword="ngModel" placeholder="Please insert your password" style="height: 12%; width: 50%;" >
+                        <span class="errormsg" *ngIf="!pword.valid && pword.touched"> Password required!!</span>            
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <button class="btn btn-default" type="submit" [disabled]="!loginForm.form.valid" style="height: 18%; width: 20%; border: 2px solid black;">
+                            Login 
+                        </button>
+                    </div>
+                    <br>
+                </div>
+            </form>
+
+            <div class="successmsg">
+                <p *ngIf="loginResult == 'success'">Login success!!</p>
             </div>
 
-            <div class = "from-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" class="form-control" name = "password" required #pword="" ngModel [(ngModel)]="password">
-                <span class="errormsg" *ngIf="!pword.valid && pword.touched">Password required!</span>            
+            <div class="errormsg">
+                <p *ngIf="loginResult == 'failed'">Login Failed!!</p>
             </div>
-
-            <div class="form-group">
-                <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">
-                    Login
-                </button>
-            </div>
-        </form>
-
-        <div class="successmsg">
-            <p *ngIf="loginResult == 'success'">Login success!!</p>
         </div>
-        <div class="errormsg">
-            <p *ngIf="loginResult == 'failed'"> Login Failed </p>
-        </div>
+    </div>
     </div>
 </div>

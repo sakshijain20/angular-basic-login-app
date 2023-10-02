@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    console.log(this.uname);
-    console.log(this.loginResult);
+    //console.log(this.uname);
+    
 
     if(this.uname == "user" && this.password == "password"){
       this.loginResult = "success";
@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
       this.loginResult = "failed";
       alert("Login failed");
     }
+    //console.log(this.loginResult);
 
 
   }
